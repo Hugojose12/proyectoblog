@@ -1,0 +1,9 @@
+= form_for(@category) do |f|
+  %br
+  %label Nombre
+  =f.text_field :name
+  %br 
+  %label Descripcion
+  =f.text_area :description, size: "60x12"
+  %br 
+  =f.submit action_name == "new" ? "Crear" : "Actualizar"
