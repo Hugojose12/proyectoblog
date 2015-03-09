@@ -1,5 +1,3 @@
-%p#notice= notice
-
 %h1 Lista de las categorias
 %table.table.table-hover
   %thead
@@ -13,8 +11,8 @@
         %td= category.id
         %td= category.name
         %td= category.description
-        %td= link_to 'Mostrar', category_path(category)
-        %td= link_to 'Editar', edit_category_path(category)
-        %td= link_to 'Eliminar', category_path(category.id), method: :delete, data: { confirm: 'Desea eliminar este campo por completo?' }
+        %td= link_to 'Mostrar', category_path(category), class: "boton1"
+        %td= link_to 'Editar', edit_category_path(category), class: "boton1"
+        %td= link_to 'Eliminar', category_path(category.id), method: :delete, data: { confirm: 'Desea eliminar este campo por completo?' }, class: "boton1"
 %br
-  = link_to 'Nueva categoria', new_category_path
+  = link_to 'Nueva categoria', new_category_path, class: "boton1"

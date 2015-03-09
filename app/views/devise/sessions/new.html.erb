@@ -1,17 +1,33 @@
-<div class="fondosession">
+<div class="container ">
+  <div id="loginbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Sign In
+                        </div>
+                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#"></a></div>
+                    </div>     
 
-<div class="loginform cf">
-<h2>Iniciar Sesion</h2>
+                    <div style="padding-top:30px; filter:alpha(opacity=50); z-index:-1" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  
+  <%= f.label :email %><br />
+    <div style="margin-bottom: 25px" class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <div class="field">
+      <%= f.email_field :email, autofocus: true, class:'form-control' %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+  
+  <%= f.label :password %><br />
+  <div style="margin-bottom: 25px" class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+    <div class="field">
+    <%= f.password_field :password, autocomplete: "off", class:'form-control' %>
+    </div>
   </div>
 
   <% if devise_mapping.rememberable? -%>
@@ -21,12 +37,33 @@
     </div>
   <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+<div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
 
-<%= render "devise/shared/links" %>
+                                    <div class="col-sm-12 controls">
+                                      <div class="actions">
+                                       <%= f.submit "Log in", class: "btn btn-success" %>
+                                       <%= f.submit "Log in with Facebook", class: "btn btn-primary" %>
 
+                                        </div>
+                                        <% end %>
+                                        </div>
+                                       </div>
+
+<div class="form-group">
+                                    <div class="col-md-12 control">
+                                        <div style="border-top: 1px solid#888; margin-top: 15px; padding-top:15px; font-size:85%" >
+                                         Olvido su contraseña! 
+                                        <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                                          <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+<% end -%>
+                                          
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+
+
+</div>
 </div>
 </div>
